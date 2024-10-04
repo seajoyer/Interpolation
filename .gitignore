@@ -1,0 +1,9 @@
+cpp/build
+cpp/.cache
+cpp/compile_commands.json
+cpp/result
+py/result
+py/lagrange/__pycache__
+py/__pycache__
+result
+.direnv

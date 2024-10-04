@@ -1,0 +1,103 @@
+* Homework on Lagrange interpolation
+
+The project offers C++ and Python implementations of Lagrange interpolation, packaged as shared libraries. It also includes plotting modules for visualizing the results. You can choose to distribute the interpolation nodes either evenly (equidistantly) or using Chebyshev nodes for improved accuracy.
+
+An example for a function by 5 nodes:
+
+$$
+f(x) = \cos\left(\frac{e^\frac{x}{3}}{10}\right), \quad x \in [0, 10]
+$$
+
+#+BEGIN_HTML
+<div style="display: flex; justify-content: center;">
+  <img src="cpp/plots/images/Uniform Nodes Interpolation.png" alt="Image 2" width="45%">
+  <img src="cpp/plots/images/Chebyshev Nodes Interpolation.png" alt="Image 1" width="45%">
+</div>
+#+END_HTML
+
+** Navigation
+- [[#building-c][Building C++]]
+  - [[#for-nix-users][For Nix users]]
+  - [[#manually][Manually]]
+- [[#running-python][Running Python]]
+  - [[#for-nix-users-1][For Nix users]]
+  - [[#manually-1][Manually]]
+
+** Building C++
+
+*** For Nix users
+
+This project comes with a flake, for those lucky Nix users to build and run the C++ implementation it's enough to execute:
+#+begin_src shell
+nix run github:seajoyer/SupCo#interpolation-cpp --impure
+#+end_src shell
+Replace ~#interpolation-cpp~ with ~#interpolation-py~ to run the Python program.
+
+You can also start an isolated development shell with all the dependencies by simply running:
+#+begin_src shell
+nix develop github:seajoyer/SupCo#interpolation
+#+end_src shell
+
+*** Manually
+
+**** Prerequisites
+
+First, install dependencies, this is done differently in different systems:
+
+- [[https://gcc.gnu.org/][g++]] compiler
+- [[https://www.gnu.org/software/make/#download][Make]] build system
+- [[http://www.gnuplot.info/download.html][Gnuplot]] plotting program
+
+**** Building & Running
+
+1. Clone the repository:
+   #+begin_src shell
+   git clone https://github.com/seajoyer/SupCo
+   cd SupCo/Interpolation/cpp
+   #+end_src shell
+2. And once you are ready:
+
+   ~make~ to build
+
+   ~make run~ to build, run and generate plots
+
+   ~make clean~ to clean any generated files
+
+   ~make help~ to see a help message
+
+** Running Python
+
+*** For Nix users
+
+To run the python program, execute:
+
+#+begin_src shell
+nix run github:seajoyer/SupCo#interpolation-py --impure
+#+end_src shell
+
+To enter the isolated development shell with installed Python and necessary libs:
+#+begin_src shell
+nix develop github:seajoyer/SupCo#interpolation --impure
+#+end_src shell
+
+*** Manually
+
+**** Prerequisites
+
+- Python itself
+- NumPy library
+- Matplotlib library
+
+Install them to your system.
+
+**** Running
+
+1. Clone the repo if haven't yet
+   #+begin_src shell
+   git clone https://github.com/seajoyer/SupCo
+   cd SupCo/Interpolation/py
+   #+end_src shell
+2. Then just execute:
+   #+begin_src shell
+   python3 demo.py
+   #+end_src shell
