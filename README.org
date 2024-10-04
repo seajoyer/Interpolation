@@ -10,8 +10,8 @@ $$
 
 #+BEGIN_HTML
 <div style="display: flex; justify-content: center;">
-  <img src="cpp/plots/images/Uniform Nodes Interpolation.png" alt="Image 2" width="45%">
-  <img src="cpp/plots/images/Chebyshev Nodes Interpolation.png" alt="Image 1" width="45%">
+  <img src="cpp/plots/images/Uniform_Nodes_Interpolation.png" alt="Image 2" width="45%">
+  <img src="cpp/plots/images/Chebyshev_Nodes_Interpolation.png" alt="Image 1" width="45%">
 </div>
 #+END_HTML
 
