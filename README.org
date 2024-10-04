@@ -1,6 +1,6 @@
 * Homework on Lagrange interpolation
 
-The project offers C++ and Python implementations of Lagrange interpolation, packaged as shared libraries. It also includes plotting modules for visualizing the results. You can choose to distribute the interpolation nodes either evenly (equidistantly) or using Chebyshev nodes for improved accuracy.
+This project implements Lagrange Interpolation in C++ and Python, providing both uniform and Chebyshev node distributions. It includes functionality for interpolating single points and ranges, as well as plotting capabilities using gnuplot.
 
 An example for a function by 5 nodes:
 
