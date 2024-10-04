@@ -44,10 +44,10 @@ void plotResults(const std::vector<double>& x_nodes, const std::vector<double>& 
                << "set ylabel 'y'\n"
                << "set grid\n"
                << "set key left bottom box\n"
-               << "set key font ',18'\n"
+               << "set key font ',24'\n"
                << "set key spacing 1.5\n";
     if (title != "")
-        scriptFile << "set title '" << title << "' font ',18'\n";
+        scriptFile << "set title '" << title << "' font ',24'\n";
     if (xrange != "")
         scriptFile << "set xrange " + xrange + "\n";
     if (yrange != "")
