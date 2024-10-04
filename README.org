@@ -52,8 +52,8 @@ First, install dependencies, this is done differently in different systems:
 
 1. Clone the repository:
    #+begin_src shell
-   git clone https://github.com/seajoyer/SupCo
-   cd SupCo/Interpolation/cpp
+   git clone https://github.com/seajoyer/Interpolation
+   cd Interpolation/cpp
    #+end_src shell
 2. And once you are ready:
 
@@ -72,12 +72,12 @@ First, install dependencies, this is done differently in different systems:
 To run the python program, execute:
 
 #+begin_src shell
-nix run github:seajoyer/SupCo#interpolation-py --impure
+nix run github:seajoyer/Interpolation#py --impure
 #+end_src shell
 
 To enter the isolated development shell with installed Python and necessary libs:
 #+begin_src shell
-nix develop github:seajoyer/SupCo#interpolation --impure
+nix develop github:seajoyer/Interpolation
 #+end_src shell
 
 *** Manually
@@ -94,8 +94,8 @@ Install them to your system.
 
 1. Clone the repo if haven't yet
    #+begin_src shell
-   git clone https://github.com/seajoyer/SupCo
-   cd SupCo/Interpolation/py
+   git clone https://github.com/seajoyer/Interpolation
+   cd Interpolation/py
    #+end_src shell
 2. Then just execute:
    #+begin_src shell
