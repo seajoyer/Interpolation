@@ -29,13 +29,13 @@ $$
 
 This project comes with a flake, for those lucky Nix users to build and run the C++ implementation it's enough to execute:
 #+begin_src shell
-nix run github:seajoyer/SupCo#interpolation-cpp --impure
+nix run github:seajoyer/Interpolation#cpp --impure
 #+end_src shell
-Replace ~#interpolation-cpp~ with ~#interpolation-py~ to run the Python program.
+Replace ~#cpp~ with ~#py~ to run the Python program.
 
 You can also start an isolated development shell with all the dependencies by simply running:
 #+begin_src shell
-nix develop github:seajoyer/SupCo#interpolation
+nix develop github:seajoyer/Interpolation
 #+end_src shell
 
 *** Manually

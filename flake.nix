@@ -71,17 +71,17 @@
 
       in {
         packages = {
-          interpolation-cpp = cppProject;
-          interpolation-py = pythonProject;
+          cpp = cppProject;
+          py = pythonProject;
           default = cppProject;
         };
 
         apps = {
-          interpolation-cpp = flake-utils.lib.mkApp {
+          cpp = flake-utils.lib.mkApp {
             drv = wrapperScript;
             name = "run-interpolation-project-with-plots";
           };
-          interpolation-py = flake-utils.lib.mkApp { drv = pythonProject; };
+          py = flake-utils.lib.mkApp { drv = pythonProject; };
           default = flake-utils.lib.mkApp {
             drv = wrapperScript;
             name = "run-interpolation-project-with-plots";
