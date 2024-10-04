@@ -21,7 +21,7 @@
 
           src = ./cpp;
 
-          nativeBuildInputs = with pkgs; [ gnumake ];
+          nativeBuildInputs = with pkgs; [ gnumake libgcc ];
 
           buildInputs = with pkgs; [ gnuplot boost ];
 
@@ -82,6 +82,7 @@
           name = "interpolation-dev-shell";
 
           nativeBuildInputs = with pkgs; [
+            libgcc
             gnumake
             pyright
             ccache
@@ -90,7 +91,7 @@
             bear
           ];
 
-          buildInputs = with pkgs; [ gcc gnuplot boost pythonEnv ];
+          buildInputs = with pkgs; [ libgcc gnuplot boost pythonEnv ];
 
           shellHook = ''
             export CC=gcc
@@ -103,12 +104,12 @@
             alias c=clear
 
             echo "======================================"
-            echo "$(gcc    --version | head -n 1)"
+            echo "$(g++    --version | head -n 1)"
             echo "$(make   --version | head -n 1)"
             echo "$(python --version | head -n 1)"
             echo ""
-            echo "Build the project:  nix build .#interpolation"
-            echo "Run the project:    nix run   .#interpolation"
+            echo "Build the project:  nix build"
+            echo "Run the project:    nix run"
             echo ""
             echo "Happy coding!"
           '';
