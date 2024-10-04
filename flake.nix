@@ -62,8 +62,8 @@
           import sys
           import os
 
-          sys.path.insert(0, os.path.join(os.getcwd(), "Interpolation", "py", "lagrange"))
-          sys.path.insert(0, os.path.join(os.getcwd(), "Interpolation", "py"))
+          sys.path.insert(0, os.path.join(os.getcwd(), "py", "lagrange"))
+          sys.path.insert(0, os.path.join(os.getcwd(), "py"))
 
           import demo
           demo.main()
