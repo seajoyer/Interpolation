@@ -54,10 +54,10 @@ void plotResults(const std::vector<double>& x_nodes, const std::vector<double>& 
         scriptFile << "set yrange " + yrange + "\n";
     scriptFile
         << "plot '" + PLOTS_DIR + "data/" + title +
-               ".txt' index 0 with points lc 'black' ps 3 title 'Interpolation nodes', "
-        << "'' index 1 with points lc 'magenta' ps 3 title 'Interpolation values', "
-        << "'' index 2 with lines lw 3 lc 'black' title 'Original function', "
-        << "'' index 3 with lines lw 3 lc 'magenta' title 'Lagrange "
+               ".txt' index 0 with points lc 'black' ps 4 title 'Interpolation nodes', "
+        << "'' index 1 with points lc 'magenta' ps 4 title 'Interpolation values', "
+        << "'' index 2 with lines lw 4 lc 'black' title 'Original function', "
+        << "'' index 3 with lines lw 4 lc 'magenta' title 'Lagrange "
            "Interpolation'\n"
         << "set output\n";
     scriptFile.close();
