@@ -2,13 +2,21 @@
 #include <fstream>
 #include <iostream>
 
-const std::string PLOTS_DIR = "plots/";
+std::string getPlotsDir() {
+    const char* plotsDirEnv = std::getenv("PLOTS_DIR");
+    if (plotsDirEnv != nullptr) {
+        return std::string(plotsDirEnv) + "/";
+    }
+    return "plots/";
+}
 
 void plotResults(const std::vector<double>& x_nodes, const std::vector<double>& y_nodes,
                  const std::vector<double>& x_values, const std::vector<double>& y_values,
                  const std::vector<double>& x_extra_values, const std::vector<double>& y_extra_values_original,
                  const std::vector<double>& y_extra_values_interpolated, const std::string& xrange,
                  const std::string& yrange, const std::string& title) {
+
+    const std::string PLOTS_DIR = getPlotsDir();
 
     std::ofstream dataFile(PLOTS_DIR + "data/" + title + ".txt");
     for (size_t i = 0; i < x_nodes.size(); ++i) {

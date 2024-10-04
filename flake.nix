@@ -39,12 +39,22 @@
           pkgs.writeScriptBin "run-interpolation-project-with-plots" ''
             #!${pkgs.bash}/bin/bash
             set -e
-            mkdir -p ${cppProject}/plots/data
-            mkdir -p ${cppProject}/plots/images
-            ${cppProject}/bin/interpolation
-            for file in ${cppProject}/plots/data/*.gp; do
-              ${pkgs.gnuplot}/bin/gnuplot -p "$file" -e "set terminal x11; replot; set output;"
+
+            # Create a temporary directory for the plots
+            TEMP_DIR=$(mktemp -d)
+            mkdir -p $TEMP_DIR/plots/data
+            mkdir -p $TEMP_DIR/plots/images
+
+            # Run the interpolation program with the temporary directory
+            PLOTS_DIR=$TEMP_DIR/plots ${cppProject}/bin/interpolation
+
+            # Display plots using X11
+            for file in $TEMP_DIR/plots/data/*.gp; do
+              ${pkgs.gnuplot}/bin/gnuplot -p "$file" -e "set terminal x11; replot; pause mouse close;"
             done
+
+            # Clean up temporary directory
+            rm -rf $TEMP_DIR
           '';
 
         pythonProject = pkgs.writeScriptBin "run-python" ''

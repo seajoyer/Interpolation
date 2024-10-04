@@ -51,8 +51,8 @@ int main() {
     std::vector<double> y_uniform_extra_values   = LagrangeInterpolation::interpolateRange(x_uniform_nodes, y_uniform_nodes, x_extra_values);
     std::vector<double> y_chebyshev_extra_values = LagrangeInterpolation::interpolateRange(x_chebyshev_nodes, y_chebyshev_nodes, x_extra_values);
 
-    plotResults(x_uniform_nodes, y_uniform_nodes, x_uniform_middle_values, y_uniform_middle_values, x_extra_values, y_extra_values, y_uniform_extra_values, "[0:10]", "[-1:1]", "Uniform Nodes Interpolation");
-    plotResults(x_chebyshev_nodes, y_chebyshev_nodes, x_chebyshev_middle_values, y_chebyshev_middle_values, x_extra_values, y_extra_values, y_chebyshev_extra_values, "[0:10]", "[-1:1]", "Chebyshev Nodes Interpolation");
+    plotResults(x_uniform_nodes, y_uniform_nodes, x_uniform_middle_values, y_uniform_middle_values, x_extra_values, y_extra_values, y_uniform_extra_values, "[0:10]", "[-1:1]", "Uniform_Nodes_Interpolation");
+    plotResults(x_chebyshev_nodes, y_chebyshev_nodes, x_chebyshev_middle_values, y_chebyshev_middle_values, x_extra_values, y_extra_values, y_chebyshev_extra_values, "[0:10]", "[-1:1]", "Chebyshev_Nodes_Interpolation");
 
     return 0;
 }
