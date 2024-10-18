@@ -53,17 +53,32 @@
             rm -rf $TEMP_DIR
           '';
 
-        pythonProject = pkgs.writeScriptBin "run-python" ''
-          #!${pythonEnv}/bin/python
-          import sys
-          import os
+        pythonProject = pkgs.stdenv.mkDerivation {
+          pname = "python-interpolation";
+          version = "0.1.0";
+          name = "python-interpolation-0.1.0";
 
-          sys.path.insert(0, os.path.join(os.getcwd(), "py", "lagrange"))
-          sys.path.insert(0, os.path.join(os.getcwd(), "py"))
+          src = ./py;
 
-          import demo
-          demo.main()
-        '';
+          nativeBuildInputs = [ pythonEnv ];
+
+          installPhase = ''
+            mkdir -p $out/bin $out/lib/python
+            cp -r . $out/lib/python/
+            cat > $out/bin/run-python <<EOF
+            #!${pythonEnv}/bin/python
+            import sys
+            import os
+
+            sys.path.insert(0, '$out/lib/python')
+            sys.path.insert(0, '$out/lib/python/lagrange')
+
+            import demo
+            demo.main()
+            EOF
+            chmod +x $out/bin/run-python
+          '';
+        };
 
       in {
         packages = {
@@ -77,7 +92,10 @@
             drv = wrapperScript;
             name = "run-interpolation-project-with-plots";
           };
-          py = flake-utils.lib.mkApp { drv = pythonProject; };
+          py = flake-utils.lib.mkApp {
+            drv = pythonProject;
+            name = "run-python";
+          };
           default = flake-utils.lib.mkApp {
             drv = wrapperScript;
             name = "run-interpolation-project-with-plots";
