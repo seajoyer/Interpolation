@@ -61,7 +61,7 @@
           sys.path.insert(0, os.path.join(os.getcwd(), "py", "lagrange"))
           sys.path.insert(0, os.path.join(os.getcwd(), "py"))
 
-          import demo.py
+          import demo
           demo.main()
         '';
 
